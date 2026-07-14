@@ -125,8 +125,39 @@ suppression, and CRLF/LF dedup.
 - A JS test runner / frontend automated tests - the popover UI is only
   covered by the human checklist in `docs/phase-0-results.md`.
 
+## Permissions introduced
+
+`src-tauri/capabilities/default.json` grants the popover window exactly
+one permission set: `core:default`. No plugin-specific permissions
+(`opener:*`, `fs:*`, etc.) are granted to the frontend - `open_data_folder`
+calls `tauri-plugin-opener`'s Rust API directly from a custom command, so
+the plugin's own JS-facing permissions are never exercised. This is the
+Phase 0 baseline; later phases (shell/browser transports, Ollama) will
+need to add to this file, not silently rely on broader default grants.
+
+## Privacy implications
+
+Everything captured is plain text, stored raw and unencrypted in a local
+SQLite file, with no network access anywhere in the app (checked: no
+`reqwest`/`ureq`/`http`-client dependency exists in `Cargo.toml`, no
+`fetch`/`XMLHttpRequest` in the frontend). Events sent to the frontend
+carry previews/ids/timestamps only, never full text (`ClipboardItemSummary`
+excludes `text`); the only way full text leaves Rust is
+`copy_item_again` writing straight back to the pasteboard. This matches
+D1: the raw-storage decision is real debt, explicitly deferred to Phase 4,
+not silently forgotten.
+
+## Exact next milestone
+
+Per `ROADMAP.md`, the next milestone is **Phase 1 - shell command capture**
+(zsh `preexec`/`precmd` hooks, Unix domain socket + spool-file transport).
+Per the roadmap's own instruction ("Agents implement ONE phase at a time
+... Never build ahead"), nothing from Phase 1 was started or scaffolded
+here. Phase 1 should preserve every Phase 0 behavior in this handoff and
+extend `HANDOFF.md` again on completion, per the roadmap's milestone gate.
+
 ## Repo state
 
-Branch: `claude/recallpet-phase-0-kz9k5b`. All work for this task is on
-this branch; nothing has been pushed yet as of writing this file - see the
-commit that follows this one.
+Branch: `claude/recallpet-phase-0-kz9k5b`. `ROADMAP.md` was added directly
+to this branch after the Phase 0 commit (not authored by this task, per
+the original instructions to treat it as reference-only).
