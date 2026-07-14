@@ -1,0 +1,354 @@
+# Instincts generated from https://github.com/ejoliet/recallpet
+# Generated: 2026-07-14T14:37:17.069Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: recallpet-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ejoliet/recallpet
+---
+
+# Recallpet Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 1 commits
+
+---
+id: recallpet-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ejoliet/recallpet
+---
+
+# Recallpet Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: recallpet-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ejoliet/recallpet
+---
+
+# Recallpet Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: recallpet-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ejoliet/recallpet
+---
+
+# Recallpet Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: recallpet-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ejoliet/recallpet
+---
+
+# Recallpet Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: recallpet-instinct-filename-camelcase
+trigger: "When creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Filename Camelcase
+
+## Action
+
+Name the file using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.files
+
+---
+id: recallpet-instinct-function-camelcase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Function Camelcase
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions
+
+---
+id: recallpet-instinct-class-pascalcase
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Class Pascalcase
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: recallpet-instinct-constant-screaming-snake-case
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Constant Screaming Snake Case
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: recallpet-instinct-import-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+
+---
+id: recallpet-instinct-export-named
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+
+---
+id: recallpet-instinct-commit-freeform
+trigger: "When writing a git commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Commit Freeform
+
+## Action
+
+Write a freeform message without a prefix, summarizing the change in one sentence
+
+## Evidence
+
+- Pattern in commits.examples
+- No detected prefixes
+
+---
+id: recallpet-instinct-commit-length
+trigger: "When writing a git commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 55 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: recallpet-instinct-error-try-catch
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Error Try Catch
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style
+
+---
+id: recallpet-instinct-no-custom-error-classes
+trigger: "When considering custom error classes"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct No Custom Error Classes
+
+## Action
+
+Do not define custom error classes
+
+## Evidence
+
+- Pattern in errorHandling.customErrorClasses
+
+---
+id: recallpet-instinct-no-error-boundaries
+trigger: "When considering error boundaries"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct No Error Boundaries
+
+## Action
+
+Do not implement error boundaries
+
+## Evidence
+
+- Pattern in errorHandling.errorBoundaries
+
+---
+id: recallpet-instinct-no-global-error-handler
+trigger: "When considering a global error handler"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct No Global Error Handler
+
+## Action
+
+Do not implement a global error handler
+
+## Evidence
+
+- Pattern in errorHandling.globalHandler
+
+---
+id: recallpet-instinct-test-separate-location
+trigger: "When adding new tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ejoliet/recallpet
+---
+
+# Recallpet Instinct Test Separate Location
+
+## Action
+
+Place test files in a separate directory from source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+
