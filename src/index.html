@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecallPet</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="popover" role="application" aria-label="RecallPet clipboard history">
+      <header class="header">
+        <canvas id="avatar" class="avatar" width="40" height="40" aria-hidden="true"></canvas>
+        <div class="header-text">
+          <h1 class="title">RecallPet</h1>
+          <p id="status" class="status">Watching clipboard</p>
+        </div>
+      </header>
+
+      <div class="search-row">
+        <label for="search" class="visually-hidden">Search copied text</label>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search copied text..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div id="storage-error" class="banner banner-error" hidden>
+        Local storage is unavailable. Clipboard collection is disabled.
+      </div>
+
+      <main class="list-section">
+        <h2 class="list-heading">Recent</h2>
+        <ul id="item-list" class="item-list"></ul>
+        <p id="empty-state" class="empty-state" hidden>
+          Nothing copied yet. Copy some text and it will show up here.
+        </p>
+      </main>
+
+      <footer class="footer">
+        <button id="pause-btn" type="button" class="btn">Pause</button>
+        <button id="delete-btn" type="button" class="btn btn-danger">Delete all</button>
+        <button id="open-folder-btn" type="button" class="btn btn-quiet">Open data folder</button>
+      </footer>
+
+      <div id="delete-confirm" class="confirm-overlay" hidden>
+        <div class="confirm-box" role="alertdialog" aria-label="Confirm delete all">
+          <p>Delete all clipboard history? This cannot be undone.</p>
+          <div class="confirm-actions">
+            <button id="confirm-delete-yes" type="button" class="btn btn-danger">Delete all</button>
+            <button id="confirm-delete-no" type="button" class="btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="avatar.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

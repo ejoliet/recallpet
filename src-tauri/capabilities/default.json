@@ -1,0 +1,8 @@
+{
+  "identifier": "default",
+  "description": "Capabilities granted to the RecallPet popover window.",
+  "windows": ["popover"],
+  "permissions": [
+    "core:default"
+  ]
+}
